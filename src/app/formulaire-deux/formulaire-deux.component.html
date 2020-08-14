@@ -1,0 +1,171 @@
+<section class="section login-area h-100vh py-4">
+    <div class="container h-100">
+        <div class="row align-items-center justify-content-center h-100">
+            <div class="col-12 col-sm-10 col-md-6 col-lg-6 mx-auto d-none d-md-block">
+                <div class="login-slider owl-carousel">
+                    <img src="assets/img/login_1.svg" alt="">
+                    <img src="assets/img/login_2.svg" alt="">
+                    <img src="assets/img/login_3.svg" alt="">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-5">
+                <!-- Appo Modal -->
+                <div class="appo-modal py-4 p-lg-4">
+                    <!-- Modal Content -->
+                    <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header p-0 border-0">
+                            <ul class="nav nav-pills" id="pills-tab">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="login-tab" data-toggle="pill" href="#login">Formulaire client (2/2)</a>
+                                </li>
+
+                            </ul>
+                            <button type="button" class="close m-0" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <!-- Modal Body -->
+                        <div class="modal-body">
+                            <div class="tab-content" id="pills-tabContent">
+                              <div fxFlex fxFlexOffset="80px" class="form-size">
+                                <!-- Login Form -->
+
+
+                                    <a class="nav-link active" id="login-tab" data-toggle="pill" href="#login">details de la mission</a>
+
+                                <form novalidate [formGroup]="posteForm" (ngSubmit)="onSubmit()">
+      <p>
+        <mat-form-field class="half-width">
+      <a>    <input matInput formControlName="nomPoste" placeholder="Nom du poste"  class="form-control" type="text" required
+      minlength="3">  </a>
+        </mat-form-field>
+
+
+
+
+
+      </p>
+
+
+      <div class="input-group mb-3">
+
+          <div class="input-group-prepend">
+
+            <mat-form-field class="half-width">
+
+          <select name="localisationPoste"  class="form-control" aria-placeholder="role"  placeholder="localisation du poste" required >
+
+               <option  value="vide" >vide</option>
+              <option  value="sur site" >sur site</option>
+              <option  value="teletravail partiel">télétravail partiel</option>
+              <option  value="teletravail uniquement">télétravail uniquement</option>
+            </select>
+
+    </mat-form-field>
+  </div>
+
+</div>
+
+      <div class="input-group mb-3">
+
+          <div class="input-group-prepend">
+
+            <mat-form-field class="half-width">
+
+          <select name="competenceTechPoste"  class="form-control" aria-placeholder="role"  required >
+
+            <option  value="vide" >comp tech a remplir</option>
+              <option  value="angular" >Angular</option>
+              <option  value="node.js">Node.js</option>
+              <option  value="javascript">Javascript</option>
+              <option  value="typescript" >Typescript</option>
+              <option  value="mongoDB">MongoDB</option>
+              <option  value="python">Python</option>
+              <option  value="c++" >C++</option>
+              <option  value="c">C#</option>
+              <option  value="java">Java</option>
+
+              <option  value="j2ee">J2EE</option>
+              <option  value="html" >HTML</option>
+              <option  value="css">CSS</option>
+              <option  value="vue.js">Vue.js</option>
+
+              <option  value="spefrontend">Specialiste front end</option>
+              <option  value="spebackend" >Specialiste back end</option>
+              <option  value="devfullstack">Devloppeur fullstack</option>
+              <option  value="autre">Autre</option>
+
+            </select>
+
+    </mat-form-field>
+  </div>
+
+</div>
+
+<div class="input-group mb-3">
+
+    <div class="input-group-prepend">
+
+      <mat-form-field class="half-width">
+
+    <select name="competenceFonPoste"  class="form-control" aria-placeholder="role"  required >
+
+      <option  value="vide" > comp fon a remplir</option>
+        <option  value="empathique" >Empathique</option>
+        <option  value="curieux">Curieux</option>
+        <option  value="proactif">Trés proactif</option>
+        <option  value="solidaire" >Solidaire</option>
+        <option  value="ecout">   à l'ecoute</option>
+        <option  value="communiquant">Bon communiquant</option>
+        <option  value="creatif">Trés creatif</option>
+        <option  value="autre">Autre</option>
+
+
+      </select>
+
+</mat-form-field>
+
+
+
+
+</div>
+
+
+
+<mat-form-field class="half-width">
+<a>    <input matInput formControlName="descriptionPoste" placeholder="description du poste"  class="form-control" type="text" required
+minlength="3">  </a>
+</mat-form-field>
+
+
+<mat-form-field class="half-width">
+<a>    <input matInput formControlName="dateDebPoste" placeholder="Date de debut de mission"  class="form-control" type="date " >  </a>
+</mat-form-field>
+
+
+<mat-form-field class="half-width">
+<a>    <input matInput formControlName="tjmMax" placeholder="TJM max"  class="form-control" type="text" required
+minlength="3">  </a>
+</mat-form-field>
+
+
+</div>
+
+<p>
+      <button type="submit" class="btn btn-bordered d-block">
+    Soumettre
+      </button>
+    </p>   </form>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</section>

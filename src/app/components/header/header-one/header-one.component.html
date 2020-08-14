@@ -1,0 +1,84 @@
+<header class="section header-area">
+    <div id="appo-header" class="main-header-area">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-md navbar-light">
+                <!-- Logo -->
+                <a class="navbar-brand" href="#">
+                    <img class="logo" src="assets/img/logo.png" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#appo-menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Appo Menu -->
+                <div class="collapse navbar-collapse" id="appo-menu">
+                    <!-- Header Items -->
+                    <ul class="navbar-nav header-items nav-fill w-100">
+                        <li class="nav-item  ">
+                            <a class="nav-link" href="/theme-nine"  role="button" >
+                                Accueil
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/theme-three">Nos expertises </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/theme-four">Nos tarifs </a>
+
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-2" role="button" data-toggle="dropdown">
+                                    Nos freelances
+                                </a>
+                                <!-- Blog Menu -->
+                                <div class="dropdown-menu mega-menu blog-menu px-3 py-md-3" style="background-color: beige;">
+                                    <div class="row">
+                                        <div class="col-12" >
+                                            <ul class="single-menu" >
+                                                <li><a class="dropdown-item"  href="/theme-eight">Pourquoi nous rejoindre ?
+                                                </a></li>
+                                                <hr>
+                                                <li><a class="dropdown-item" href="">Je souhaite devenir freelance !   
+                                                </a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+             
+
+                        <li class="nav-item">
+                            <a class="nav-link scroll" href="#">Notre Académie</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link scroll" href="#">Nous contacter</a>
+                        </li>
+                        <li class="nav-item dropdown" *ngIf="isLoggedIn">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-2" role="button" data-toggle="dropdown">
+                                Mon espace
+                            </a>
+                          
+                            <div class="dropdown-menu mega-menu blog-menu px-3 py-md-3" style="background-color: beige;">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <ul class="single-menu">
+                                            <li><a class="dropdown-item" href="">Connecter en tant que <br><span style="color: darkblue;">{{ roles }}</span>
+                                            </a></li>
+                                            <hr>
+                                            <li><a class="dropdown-item" href="http://localhost:4201/pages/profile">Dashboard
+                                            </a></li>
+                                            <hr>
+                                       
+                                            <li><a class="dropdown-item"  (click)="logout()">logout
+                                            </a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                                 </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>

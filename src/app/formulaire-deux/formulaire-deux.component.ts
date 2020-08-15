@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators , FormControl } from '@angular/forms';
 import {Poste} from '../shared/poste'
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule} from '@angular/forms'
+import {Router} from "@angular/router"
+
 
 
 
@@ -14,33 +16,40 @@ import { ReactiveFormsModule} from '@angular/forms'
 })
 export class FormulaireDeuxComponent implements OnInit {
 
-  posteForm : FormGroup;
-  poste:  Poste;
+  form = new FormGroup({
+  nomPoste: new FormControl('', Validators.required),
+
+    competenceTechPoste: new FormControl('', Validators.required),
+    competenceFonPoste: new FormControl('', Validators.required),
+    descriptionPoste: new FormControl('', Validators.required),
+    localisationPoste: new FormControl('', Validators.required),
+    dateDebPoste: new FormControl('', Validators.required),
+  tjmMax: new FormControl('', Validators.required)
+})
 
 
-  constructor(private fb: FormBuilder) {
-    this.createForm();
+
+  constructor(private router: Router) {
 }
 
-createForm() {
-    this.posteForm = this.fb.group({
 
-      competenceTechPoste: '',
-      competenceFonPoste: '',
-      descriptionPoste: '',
-      localisationPoste : '',
-      dateDebPoste: '' ,
-      tjmMax : ''
-
-
-
-    });
+getcompetenceTechPoste(){
+  return this.form.get('competenceTechPoste')
 }
+
+
+redirect() {
+
+this.router.navigate(['/login']);
+
+}
+
+
+onSubmit(){
+  alert(JSON.stringify(this.form.value));
+}
+
   ngOnInit(): void {
   }
-  onSubmit() {
-this.poste = this.posteForm.value;
-console.log(this.poste);
-this.posteForm.reset();
-}
+
 }

@@ -33,6 +33,8 @@ import { BlogDetailsLeftSidebarComponent } from './components/blogs/blog-details
 import { BlogDetailsRightSidebarComponent } from './components/blogs/blog-details-right-sidebar/blog-details-right-sidebar.component';
 import { FormulaireUnComponent } from './formulaire-un/formulaire-un.component';
 import { FormulaireDeuxComponent } from './formulaire-deux/formulaire-deux.component';
+import { PropositionComponent } from './proposition/proposition.component';
+
 
 
 const routes: Routes = [
@@ -67,7 +69,10 @@ const routes: Routes = [
   {path: 'blog-details-left-sidebar', component: BlogDetailsLeftSidebarComponent},
   {path: 'blog-details-right-sidebar', component: BlogDetailsRightSidebarComponent},
   {path: 'formOne', component: FormulaireUnComponent},
-  {path: 'formTwo', component: FormulaireDeuxComponent}
+  {path: 'formTwo', component: FormulaireDeuxComponent},
+  {path: 'prop', component: PropositionComponent}
+
+
 
 
 ];

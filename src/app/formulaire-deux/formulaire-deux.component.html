@@ -17,7 +17,8 @@
                         <div class="modal-header p-0 border-0">
                             <ul class="nav nav-pills" id="pills-tab">
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="login-tab" data-toggle="pill" href="#login">Formulaire client (2/2)</a>
+                                    <a class="nav-link active" id="login-tab" data-toggle="pill" href="#login">Formulaire
+                                        client (2/2)</a>
                                 </li>
 
                             </ul>
@@ -28,144 +29,160 @@
                         <!-- Modal Body -->
                         <div class="modal-body">
                             <div class="tab-content" id="pills-tabContent">
-                              <div fxFlex fxFlexOffset="80px" class="form-size">
-                                <!-- Login Form -->
+                                <div fxFlex fxFlexOffset="80px" class="form-size">
+                                    <!-- Login Form -->
+
+                                    <form name="form" [formGroup]="form" (ngSubmit)="form.valid && onSubmit()">
 
 
-                                    <a class="nav-link active" id="login-tab" data-toggle="pill" href="#login">details de la mission</a>
+                                      <div class="form-group">
+                                        <i class="material-icons">account_circle</i>
 
-                                <form novalidate [formGroup]="posteForm" (ngSubmit)="onSubmit()">
-      <p>
-        <mat-form-field class="half-width">
-      <a>    <input matInput formControlName="nomPoste" placeholder="Nom du poste"  class="form-control" type="text" required
-      minlength="3">  </a>
-        </mat-form-field>
-
-
-
+                                        <label for="nomPoste">Nom du poste*</label>
+                                        <input type="text" class="form-control" formControlName="nomPoste" [ngClass]="{'is-invalid':form.get('nomPoste').touched && form.get('nomPoste').invalid}" required />
+                                        <div class="invalid-feedback">
+                                          <div>Ce champ est obligatoire</div>
+                                        </div>
+                                      </div>
 
 
-      </p>
+
+                                      <div class="form-group">
+                                        <i class="material-icons">build</i>
+
+                                        <label for="competenceTechPoste">Compétence technique*</label>
+                                        <select type="text" class="form-control"  formControlName="competenceTechPoste" [ngClass]="{'is-invalid':form.get('competenceTechPoste').touched && form.get('competenceTechPoste').invalid}" >
+                                          <option  value="vide" >vide</option>
+                 <option  value="sur site" >sur site</option>
+                 <option  value="teletravail partiel">télétravail partiel</option>
+                 <option  value="teletravail uniquement">télétravail uniquement</option>
+                                        </select>
+
+                                        <div *ngIf="form.get('competenceTechPoste').touched && form.get('competenceTechPoste').invalid"  class="invalid-feedback">
+                                          <div *ngIf="form.get('competenceTechPoste').errors.required">Ce champ est obligatoire</div>
+                                        </div>
+                                      </div>
 
 
-      <div class="input-group mb-3">
 
-          <div class="input-group-prepend">
 
-            <mat-form-field class="half-width">
+                                        <div class="form-group">
+                                          <i class="material-icons">face</i>
 
-          <select name="localisationPoste"  class="form-control" aria-placeholder="role"  placeholder="localisation du poste" required >
+                                          <label for="competenceFonPoste">Compétence fonctionnelle*</label>
+                                          <select type="text" class="form-control"  formControlName="competenceFonPoste" [ngClass]="{'is-invalid':form.get('competenceFonPoste').touched && form.get('competenceFonPoste').invalid}" >
+                                            <option  value="vide" >comp tech a remplir</option>
+                <option  value="angular" >Angular</option>
+                <option  value="node.js">Node.js</option>
+                <option  value="javascript">Javascript</option>
+                <option  value="typescript" >Typescript</option>
+                <option  value="mongoDB">MongoDB</option>
+                <option  value="python">Python</option>
+                <option  value="c++" >C++</option>
+                <option  value="c">C#</option>
+                <option  value="java">Java</option>
 
-               <option  value="vide" >vide</option>
-              <option  value="sur site" >sur site</option>
-              <option  value="teletravail partiel">télétravail partiel</option>
-              <option  value="teletravail uniquement">télétravail uniquement</option>
-            </select>
+                <option  value="j2ee">J2EE</option>
+                <option  value="html" >HTML</option>
+                <option  value="css">CSS</option>
+                <option  value="vue.js">Vue.js</option>
 
-    </mat-form-field>
+                <option  value="spefrontend">Specialiste front end</option>
+                <option  value="spebackend" >Specialiste back end</option>
+                <option  value="devfullstack">Devloppeur fullstack</option>
+                <option  value="autre">Autre</option>
+                                          </select>
+
+                                          <div *ngIf="form.get('competenceFonPoste').touched && form.get('competenceFonPoste').invalid"  class="invalid-feedback">
+                                            <div *ngIf="form.get('competenceFonPoste').errors.required">Ce champ est obligatoire</div>
+
+                                          </div>
+                                        </div>
+
+
+
+
+
+
+        <div class="form-group">
+          <i class="material-icons">border_color</i>
+
+          <label for="descriptionPoste">Description du poste*</label>
+          <input type="text" class="form-control" formControlName="descriptionPoste" [ngClass]="{'is-invalid':form.get('descriptionPoste').touched && form.get('descriptionPoste').invalid}"   />
+          <div *ngIf="form.get('descriptionPoste').touched && form.get('descriptionPoste').invalid"  class="invalid-feedback">
+            <div *ngIf="form.get('descriptionPoste').errors.required">Ce champ est obligatoire</div>
+
+
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <i class="material-icons">add_location</i>
+
+          <label for="localisationPoste">Localisation du poste*</label>
+          <input type="text" class="form-control"  formControlName="localisationPoste" [ngClass]="{'is-invalid':form.get('localisationPoste').touched && form.get('localisationPoste').invalid}" />
+
+
+          <div *ngIf="form.get('localisationPoste').touched && form.get('localisationPoste').invalid"  class="invalid-feedback">
+            <div *ngIf="form.get('localisationPoste').errors.required">Ce champ est obligatoire</div>
+
+          </div>
+
+        </div>
+
+
+        <div class="form-group">
+          <i class="material-icons">date_range</i>
+
+          <label for="dateDebPoste">Date du debut de la mission*</label>
+          <input type="date" class="form-control" formControlName="dateDebPoste" [ngClass]="{'is-invalid':form.get('dateDebPoste').touched && form.get('dateDebPoste').invalid}"   />
+          <div *ngIf="form.get('dateDebPoste').touched && form.get('dateDebPoste').invalid"  class="invalid-feedback">
+            <div *ngIf="form.get('dateDebPoste').errors.required">Ce champ est obligatoire</div>
+
+
+          </div>
+        </div>
+
+
+
+        <div class="form-group">
+          <i class="material-icons">attach_money
+</i>
+
+          <label for="tjmMax">Taux journalier moyen*</label>
+          <input type="text" class="form-control" formControlName="tjmMax" [ngClass]="{'is-invalid':form.get('tjmMax').touched && form.get('tjmMax').invalid}"   />
+          <div *ngIf="form.get('tjmMax').touched && form.get('tjmMax').invalid"  class="invalid-feedback">
+            <div *ngIf="form.get('tjmMax').errors.required">Ce champ est obligatoire</div>
+
+
+          </div>
+        </div>
+
+
+
+        <div class="form-group">
+          <button class="btn btn-primary"  [disabled]="!form.valid" (click)="redirect()">Soumettre</button>
+        </div>
+      </form>
+    </div>
   </div>
-
 </div>
-
-      <div class="input-group mb-3">
-
-          <div class="input-group-prepend">
-
-            <mat-form-field class="half-width">
-
-          <select name="competenceTechPoste"  class="form-control" aria-placeholder="role"  required >
-
-            <option  value="vide" >comp tech a remplir</option>
-              <option  value="angular" >Angular</option>
-              <option  value="node.js">Node.js</option>
-              <option  value="javascript">Javascript</option>
-              <option  value="typescript" >Typescript</option>
-              <option  value="mongoDB">MongoDB</option>
-              <option  value="python">Python</option>
-              <option  value="c++" >C++</option>
-              <option  value="c">C#</option>
-              <option  value="java">Java</option>
-
-              <option  value="j2ee">J2EE</option>
-              <option  value="html" >HTML</option>
-              <option  value="css">CSS</option>
-              <option  value="vue.js">Vue.js</option>
-
-              <option  value="spefrontend">Specialiste front end</option>
-              <option  value="spebackend" >Specialiste back end</option>
-              <option  value="devfullstack">Devloppeur fullstack</option>
-              <option  value="autre">Autre</option>
-
-            </select>
-
-    </mat-form-field>
-  </div>
-
-</div>
-
-<div class="input-group mb-3">
-
-    <div class="input-group-prepend">
-
-      <mat-form-field class="half-width">
-
-    <select name="competenceFonPoste"  class="form-control" aria-placeholder="role"  required >
-
-      <option  value="vide" > comp fon a remplir</option>
-        <option  value="empathique" >Empathique</option>
-        <option  value="curieux">Curieux</option>
-        <option  value="proactif">Trés proactif</option>
-        <option  value="solidaire" >Solidaire</option>
-        <option  value="ecout">   à l'ecoute</option>
-        <option  value="communiquant">Bon communiquant</option>
-        <option  value="creatif">Trés creatif</option>
-        <option  value="autre">Autre</option>
-
-
-      </select>
-
-</mat-form-field>
-
-
-
-
 </div>
 
 
 
-<mat-form-field class="half-width">
-<a>    <input matInput formControlName="descriptionPoste" placeholder="description du poste"  class="form-control" type="text" required
-minlength="3">  </a>
-</mat-form-field>
-
-
-<mat-form-field class="half-width">
-<a>    <input matInput formControlName="dateDebPoste" placeholder="Date de debut de mission"  class="form-control" type="date " >  </a>
-</mat-form-field>
-
-
-<mat-form-field class="half-width">
-<a>    <input matInput formControlName="tjmMax" placeholder="TJM max"  class="form-control" type="text" required
-minlength="3">  </a>
-</mat-form-field>
-
-
-</div>
-
-<p>
-      <button type="submit" class="btn btn-bordered d-block">
-    Soumettre
-      </button>
-    </p>   </form>
+                                            </div>
+                                        </div>
 
 
                                 </div>
 
+
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-</div>
+
+
+
+
+
 </section>

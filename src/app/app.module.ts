@@ -85,8 +85,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormulaireUnComponent } from './formulaire-un/formulaire-un.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormulaireDeuxComponent } from './formulaire-deux/formulaire-deux.component';
-import {MatInputModule} from "@angular/material/input";
-import {MatButtonModule} from "@angular/material/button";
+import { PropositionComponent } from './proposition/proposition.component';
 
 
 @NgModule({
@@ -167,7 +166,8 @@ import {MatButtonModule} from "@angular/material/button";
     MapComponent,
     AboutUsComponent,
     FormulaireUnComponent,
-    FormulaireDeuxComponent
+    FormulaireDeuxComponent,
+    PropositionComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -178,10 +178,8 @@ import {MatButtonModule} from "@angular/material/button";
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatToolbarModule,
-    FlexLayoutModule,
-    MatInputModule,
-    MatButtonModule
+   MatToolbarModule,
+   FlexLayoutModule
 
   ],
   providers: [],

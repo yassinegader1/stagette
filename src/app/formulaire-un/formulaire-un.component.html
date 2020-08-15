@@ -1,88 +1,28 @@
-<section class="section login-area h-100vh py-4">
-    <div class="container h-100">
-        <div class="row align-items-center justify-content-center h-100">
-            <div class="col-12 col-sm-10 col-md-6 col-lg-6 mx-auto d-none d-md-block">
-                <div class="login-slider owl-carousel">
-                    <img src="assets/img/login_1.svg" alt="">
-                    <img src="assets/img/login_2.svg" alt="">
-                    <img src="assets/img/login_3.svg" alt="">
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-5">
-                <!-- Appo Modal -->
-                <div class="appo-modal py-4 p-lg-4">
-                    <!-- Modal Content -->
-                    <div class="modal-content">
-                        <!-- Modal Header -->
-                        <div class="modal-header p-0 border-0">
-                            <ul class="nav nav-pills" id="pills-tab">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="login-tab" data-toggle="pill" href="#login">Formulaire client (1/2)</a>
-                                </li>
-
-                            </ul>
-                            <button type="button" class="close m-0" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <!-- Modal Body -->
-                        <div class="modal-body">
-                            <div class="tab-content" id="pills-tabContent">
-                              <div fxFlex fxFlexOffset="80px" class="form-size">
-                                <!-- Login Form -->
-
-                                <form novalidate [formGroup]="entrepriseForm" (ngSubmit)="onSubmit()">
-      <p>
-        <mat-form-field class="half-width">
-      <a>    <input matInput formControlName="nomEntreprise" placeholder="Nom de l'entreprise"  class="form-control" type="text" required
-      minlength="3">  </a>
-        </mat-form-field>
-        <mat-form-field class="half-width">
-          <input matInput formControlName="adresseEntreprise" class="form-control" placeholder="Adresse" type="text" required
-          minlength="6">
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field class="half-width">
-          <input matInput formControlName="  siretEntreprise" class="form-control" placeholder="siret" type="text" required
-          length="14">
-        </mat-form-field>
-
-      </p>
-
-      <div class="input-group mb-3">
-
-          <div class="input-group-prepend">
-
-            <mat-form-field class="half-width">
-
-          <select name="nbEmployes"  class="form-control" aria-placeholder="role"  required >
-
-            <option  value="vide" >...</option>
-              <option  value="1-10" >1-10</option>
-              <option  value="11-100">11-100</option>
-              <option  value="100+">100+</option>
-            </select>
-
-    </mat-form-field>
-  </div>
-
-</div>
-
-<p>
-      <button type="submit" class="btn btn-bordered d-block">
-    Soumettre
-      </button>
-    </p>   </form>
 
 
-                                </div>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+<div class="container" *ngIf="!isLoading">
+
+    <div [formGroup]="formLogin" class="row">
+        <div class="col-12 py-1">
+            <mat-form-field appearance="outline">
+                <mat-label>Enter your Username</mat-label>
+                <input matInput placeholder="Username" formControlName="username" required>
+            </mat-form-field>
         </div>
+        <div class="col-12 py-1">
+            <mat-form-field appearance="outline">
+                <mat-label>Enter your Password</mat-label>
+                <input matInput placeholder="Password" formControlName="password" type="password" required>
+            </mat-form-field>
+        </div>
+
+        <div class="col-12 py-1 d-flex justify-content-center">
+            <button mat-button [disabled]="formLogin.invalid" (click)="onLogin()" class="yellow-button w-50">
+                Login
+            </button>
+        </div>
+
+    </div>
 </div>
-</section>

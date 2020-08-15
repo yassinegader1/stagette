@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {Entreprise} from '../shared/entreprise'
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule} from '@angular/forms'
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+
 @Component({
   selector: 'app-formulaire-un',
   templateUrl: './formulaire-un.component.html',
@@ -10,34 +8,24 @@ import { ReactiveFormsModule} from '@angular/forms'
 
 })
 export class FormulaireUnComponent implements OnInit {
+  isLoading: boolean = false;
+  formLogin: FormGroup = this.formBuilder.group({
+    username: new FormControl('', [Validators.required,Validators.minLength(5)]),
+    password: new FormControl('', [Validators.required]),
+    remember: new FormControl(false)
+  })
 
-  entrepriseForm : FormGroup;
-  entreprise:  Entreprise;
-
-
-  constructor( private fb: FormBuilder ) {
-    this.createForm();
-}
+  constructor(private formBuilder: FormBuilder) {
+  }
 
   ngOnInit(): void {
   }
 
+  onLogin() {
+    const username = this.formLogin.value.username;
+    const password = this.formLogin.value.password;
+    this.isLoading = false
+    this.formLogin.reset()
+  }
 
-  createForm() {
-      this.entrepriseForm = this.fb.group({
-      nomentreprise: '',
-        adresseEntreprise: '',
-        siretEntreprise: 0,
-        nbEntreprise: ''
-
-
-
-
-      });
-    }
-    onSubmit() {
-  this.entreprise = this.entrepriseForm.value;
-  console.log(this.entreprise);
-  this.entrepriseForm.reset();
-}
 }

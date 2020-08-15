@@ -85,6 +85,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormulaireUnComponent } from './formulaire-un/formulaire-un.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormulaireDeuxComponent } from './formulaire-deux/formulaire-deux.component';
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
@@ -176,8 +178,10 @@ import { FormulaireDeuxComponent } from './formulaire-deux/formulaire-deux.compo
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-   MatToolbarModule,
-   FlexLayoutModule
+    MatToolbarModule,
+    FlexLayoutModule,
+    MatInputModule,
+    MatButtonModule
 
   ],
   providers: [],

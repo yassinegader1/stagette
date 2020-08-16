@@ -1,185 +1,246 @@
 <section class="section login-area h-100vh py-4">
-    <div class="container h-100">
-        <div class="row align-items-center justify-content-center h-100">
-            <div class="col-12 col-sm-10 col-md-6 col-lg-6 mx-auto d-none d-md-block">
-                <div class="login-slider owl-carousel">
-                    <img src="assets/img/login_1.svg" alt="">
-                    <img src="assets/img/login_2.svg" alt="">
-                    <img src="assets/img/login_3.svg" alt="">
-                </div>
+  <div >
+    <div class="row align-items-center justify-content-center h-100">
+      <div class="col-12 col-sm-10 col-md-6 col-lg-6 mx-auto d-none d-md-block">
+        <div class="login-slider owl-carousel">
+          <img src="assets/img/login_1.svg" alt="">
+          <img src="assets/img/login_2.svg" alt="">
+          <img src="assets/img/login_3.svg" alt="">
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-6">
+        <!-- Appo Modal -->
+        <div class="appo-modal py-4 ">
+          <!-- Modal Content -->
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header p-0 border-0">
+              <ul class="nav nav-pills" id="pills-tab">
+                <li class="nav-item">
+                  <a class="navbar-brand" href="#">
+                    <img class="logo" src="assets/img/logo.png" alt="">Connectify</a>
+                  <a class="nav-link active" id="login-tab" data-toggle="pill" href="#login">Formulaire
+                    client (2/2)</a>
+                </li>
+
+              </ul>
+
             </div>
-            <div class="col-12 col-md-6 col-lg-5">
-                <!-- Appo Modal -->
-                <div class="appo-modal py-4 p-lg-4">
-                    <!-- Modal Content -->
-                    <div class="modal-content">
-                        <!-- Modal Header -->
-                        <div class="modal-header p-0 border-0">
-                            <ul class="nav nav-pills" id="pills-tab">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="login-tab" data-toggle="pill" href="#login">Formulaire
-                                        client (2/2)</a>
-                                </li>
+            <!-- Modal Body -->
+            <div class="modal-body">
+              <div class="tab-content" id="pills-tabContent">
+                <div fxFlex fxFlexOffset="20px" class="form-size">
+                  <!-- Login Form -->
 
-                            </ul>
-                            <button type="button" class="close m-0" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <!-- Modal Body -->
-                        <div class="modal-body">
-                            <div class="tab-content" id="pills-tabContent">
-                                <div fxFlex fxFlexOffset="80px" class="form-size">
-                                    <!-- Login Form -->
-
-                                    <form name="form" [formGroup]="form" (ngSubmit)="form.valid && onSubmit()">
+                  <form name="form" [formGroup]="form" (ngSubmit)="form.valid && onSubmit()">
 
 
-                                      <div class="form-group">
-                                        <i class="material-icons">account_circle</i>
+                    <div class="input-group mb-3">
 
-                                        <label for="nomPoste">Nom du poste*</label>
-                                        <input type="text" class="form-control" formControlName="nomPoste" [ngClass]="{'is-invalid':form.get('nomPoste').touched && form.get('nomPoste').invalid}" required />
-                                        <div class="invalid-feedback">
-                                          <div>Ce champ est obligatoire</div>
-                                        </div>
-                                      </div>
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon2"><i
+                            class="material-icons">account_circle</i></span>
+                      </div>
 
 
 
-                                      <div class="form-group">
-                                        <i class="material-icons">build</i>
-
-                                        <label for="competenceTechPoste">Compétence technique*</label>
-                                        <select type="text" class="form-control"  formControlName="competenceTechPoste" [ngClass]="{'is-invalid':form.get('competenceTechPoste').touched && form.get('competenceTechPoste').invalid}" >
-                                          <option  value="vide" >vide</option>
-                 <option  value="sur site" >sur site</option>
-                 <option  value="teletravail partiel">télétravail partiel</option>
-                 <option  value="teletravail uniquement">télétravail uniquement</option>
-                                        </select>
-
-                                        <div *ngIf="form.get('competenceTechPoste').touched && form.get('competenceTechPoste').invalid"  class="invalid-feedback">
-                                          <div *ngIf="form.get('competenceTechPoste').errors.required">Ce champ est obligatoire</div>
-                                        </div>
-                                      </div>
+                      <input type="text" placeholder="Nom du poste " class="form-control" formControlName="nomPoste"
+                        [ngClass]="{'is-invalid':form.get('nomPoste').touched && form.get('nomPoste').invalid}"
+                        required />
+                      <div class="invalid-feedback">
+                        <div>Ce champ est obligatoire</div>
+                      </div>
+                    </div>
 
 
 
+                    <div class="input-group mb-3">
 
-                                        <div class="form-group">
-                                          <i class="material-icons">face</i>
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon2"> <i class="material-icons">build</i></span>
+                      </div>
 
-                                          <label for="competenceFonPoste">Compétence fonctionnelle*</label>
-                                          <select type="text" class="form-control"  formControlName="competenceFonPoste" [ngClass]="{'is-invalid':form.get('competenceFonPoste').touched && form.get('competenceFonPoste').invalid}" >
-                                            <option  value="vide" >comp tech a remplir</option>
-                <option  value="angular" >Angular</option>
-                <option  value="node.js">Node.js</option>
-                <option  value="javascript">Javascript</option>
-                <option  value="typescript" >Typescript</option>
-                <option  value="mongoDB">MongoDB</option>
-                <option  value="python">Python</option>
-                <option  value="c++" >C++</option>
-                <option  value="c">C#</option>
-                <option  value="java">Java</option>
 
-                <option  value="j2ee">J2EE</option>
-                <option  value="html" >HTML</option>
-                <option  value="css">CSS</option>
-                <option  value="vue.js">Vue.js</option>
 
-                <option  value="spefrontend">Specialiste front end</option>
-                <option  value="spebackend" >Specialiste back end</option>
-                <option  value="devfullstack">Devloppeur fullstack</option>
-                <option  value="autre">Autre</option>
-                                          </select>
+                      <select type="text" placeholder="Compétence technique " class="form-control"
+                        formControlName="competenceTechPoste"
+                        [ngClass]="{'is-invalid':form.get('competenceTechPoste').touched && form.get('competenceTechPoste').invalid}"
+                        multiple>
+                        <option value="vide">vide</option>
+                        <option value="Empathique">Empathique</option>
+                        <option value="curieux">curieux</option>
+                        <option value="très réactif">très réactif</option>
+                        <option value="très proactif">très proactif</option>
+                        <option value="très solidaire">très solidaire</option>
+                        <option value="à l'écoute">à l'écoute</option>
+                        <option value="très créatif ">très créatif</option>
+                        <option value="bon communiquant">bon communiquant</option>
+                      </select>
 
-                                          <div *ngIf="form.get('competenceFonPoste').touched && form.get('competenceFonPoste').invalid"  class="invalid-feedback">
-                                            <div *ngIf="form.get('competenceFonPoste').errors.required">Ce champ est obligatoire</div>
-
-                                          </div>
-                                        </div>
+                      <div *ngIf="form.get('competenceTechPoste').touched && form.get('competenceTechPoste').invalid"
+                        class="invalid-feedback">
+                        <div *ngIf="form.get('competenceTechPoste').errors.required">Ce champ est obligatoire</div>
+                      </div>
+                    </div>
 
 
 
 
+                    <div class="input-group mb-3">
+
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon2"><i class="material-icons">face</i></span>
+                      </div>
 
 
-        <div class="form-group">
-          <i class="material-icons">border_color</i>
 
-          <label for="descriptionPoste">Description du poste*</label>
-          <input type="text" class="form-control" formControlName="descriptionPoste" [ngClass]="{'is-invalid':form.get('descriptionPoste').touched && form.get('descriptionPoste').invalid}"   />
-          <div *ngIf="form.get('descriptionPoste').touched && form.get('descriptionPoste').invalid"  class="invalid-feedback">
-            <div *ngIf="form.get('descriptionPoste').errors.required">Ce champ est obligatoire</div>
+                      <select type="text" placeholder=" compétence technique " class="form-control"
+                        formControlName="competenceFonPoste"
+                        [ngClass]="{'is-invalid':form.get('competenceFonPoste').touched && form.get('competenceFonPoste').invalid}"
+                        multiple>
+                        <option value="vide">vide</option>
+                        <option value="angular">Angular</option>
+                        <option value="node.js">Node.js</option>
+                        <option value="javascript">Javascript</option>
+                        <option value="typescript">Typescript</option>
+                        <option value="mongoDB">MongoDB</option>
+                        <option value="python">Python</option>
+                        <option value="c++">C++</option>
+                        <option value="c">C#</option>
+                        <option value="java">Java</option>
+
+                        <option value="j2ee">J2EE</option>
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="vue.js">Vue.js</option>
+
+                        <option value="spefrontend">Specialiste front end</option>
+                        <option value="spebackend">Specialiste back end</option>
+                        <option value="devfullstack">Devloppeur fullstack</option>
+                        <option value="autre">Autre</option>
+                      </select>
+
+                      <div *ngIf="form.get('competenceFonPoste').touched && form.get('competenceFonPoste').invalid"
+                        class="invalid-feedback">
+                        <div *ngIf="form.get('competenceFonPoste').errors.required">Ce champ est obligatoire</div>
+
+                      </div>
+                    </div>
 
 
+
+
+
+
+
+                    <div class="input-group mb-3">
+
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon2"> <i
+                            class="material-icons">border_color</i></span>
+                      </div>
+
+
+                      <input type="text" placeholder=" Description du poste " class="form-control"
+                        formControlName="descriptionPoste"
+                        [ngClass]="{'is-invalid':form.get('descriptionPoste').touched && form.get('descriptionPoste').invalid}" />
+                      <div *ngIf="form.get('descriptionPoste').touched && form.get('descriptionPoste').invalid"
+                        class="invalid-feedback">
+                        <div *ngIf="form.get('descriptionPoste').errors.required">Ce champ est obligatoire</div>
+
+
+                      </div>
+                    </div>
+
+
+                    <div class="input-group mb-3">
+
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon2"><i
+                            class="material-icons">add_location</i></span>
+                      </div>
+
+
+
+                      <select type="text" placeholder="Localisation du poste " class="form-control"
+                        formControlName="localisationPoste"
+                        [ngClass]="{'is-invalid':form.get('localisationPoste').touched && form.get('localisationPoste').invalid}">
+                        <option value="vide">vide</option>
+                        <option value="sur site">sur site</option>
+                        <option value="teletravail partiel">télétravail partiel</option>
+                        <option value="teletravail uniquement">télétravail uniquement</option>
+                      </select>
+
+                      <div *ngIf="form.get('localisationPoste').touched && form.get('localisationPoste').invalid"
+                        class="invalid-feedback">
+                        <div *ngIf="form.get('localisationPoste').errors.required">Ce champ est obligatoire</div>
+
+                      </div>
+
+                    </div>
+
+
+                    <div class="input-group mb-3">
+
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon2"><i class="material-icons">date_range</i></span>
+                      </div>
+
+
+
+                      <input type="date" class="form-control" formControlName="dateDebPoste"
+                        [ngClass]="{'is-invalid':form.get('dateDebPoste').touched && form.get('dateDebPoste').invalid}" />
+                      <div *ngIf="form.get('dateDebPoste').touched && form.get('dateDebPoste').invalid"
+                        class="invalid-feedback">
+                        <div *ngIf="form.get('dateDebPoste').errors.required">Ce champ est obligatoire</div>
+
+
+                      </div>
+                    </div>
+
+
+
+                    <div class="input-group mb-3">
+
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon2"> <i class="material-icons">attach_money
+                          </i></span>
+                      </div>
+
+
+
+                      <input type="text" placeholder="Taux journalier moyen " class="form-control"
+                        formControlName="tjmMax"
+                        [ngClass]="{'is-invalid':form.get('tjmMax').touched && form.get('tjmMax').invalid}" />
+                      <div *ngIf="form.get('tjmMax').touched && form.get('tjmMax').invalid" class="invalid-feedback">
+                        <div *ngIf="form.get('tjmMax').errors.required">Ce champ est obligatoire</div>
+
+
+                      </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                      <button class="btn btn-bordered d-block" [disabled]="!form.valid"
+                        (click)="redirect()">Soumettre</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
 
 
-        <div class="form-group">
-          <i class="material-icons">add_location</i>
-
-          <label for="localisationPoste">Localisation du poste*</label>
-          <input type="text" class="form-control"  formControlName="localisationPoste" [ngClass]="{'is-invalid':form.get('localisationPoste').touched && form.get('localisationPoste').invalid}" />
-
-
-          <div *ngIf="form.get('localisationPoste').touched && form.get('localisationPoste').invalid"  class="invalid-feedback">
-            <div *ngIf="form.get('localisationPoste').errors.required">Ce champ est obligatoire</div>
-
-          </div>
 
         </div>
+      </div>
 
 
-        <div class="form-group">
-          <i class="material-icons">date_range</i>
-
-          <label for="dateDebPoste">Date du debut de la mission*</label>
-          <input type="date" class="form-control" formControlName="dateDebPoste" [ngClass]="{'is-invalid':form.get('dateDebPoste').touched && form.get('dateDebPoste').invalid}"   />
-          <div *ngIf="form.get('dateDebPoste').touched && form.get('dateDebPoste').invalid"  class="invalid-feedback">
-            <div *ngIf="form.get('dateDebPoste').errors.required">Ce champ est obligatoire</div>
-
-
-          </div>
-        </div>
-
-
-
-        <div class="form-group">
-          <i class="material-icons">attach_money
-</i>
-
-          <label for="tjmMax">Taux journalier moyen*</label>
-          <input type="text" class="form-control" formControlName="tjmMax" [ngClass]="{'is-invalid':form.get('tjmMax').touched && form.get('tjmMax').invalid}"   />
-          <div *ngIf="form.get('tjmMax').touched && form.get('tjmMax').invalid"  class="invalid-feedback">
-            <div *ngIf="form.get('tjmMax').errors.required">Ce champ est obligatoire</div>
-
-
-          </div>
-        </div>
-
-
-
-        <div class="form-group">
-          <button class="btn btn-primary"  [disabled]="!form.valid" (click)="redirect()">Soumettre</button>
-        </div>
-      </form>
     </div>
+
+
   </div>
-</div>
-</div>
-
-
-
-                                            </div>
-                                        </div>
-
-
-                                </div>
-
-
-                            </div>
 
 
 

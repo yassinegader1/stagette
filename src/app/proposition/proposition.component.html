@@ -1,5 +1,5 @@
 <section class="section login-area h-100vh py-4">
-    <div class="container h-100">
+    <div class="container">
         <div class="row align-items-center justify-content-center h-100">
             <div class="col-12 col-sm-10 col-md-6 col-lg-6 mx-auto d-none d-md-block">
                 <div class="login-slider owl-carousel">
@@ -10,44 +10,42 @@
             </div>
             <div class="col-12 col-md-6 col-lg-5">
                 <!-- Appo Modal -->
-                <div class="appo-modal py-4 p-lg-4">
+                <div >
                     <!-- Modal Content -->
                     <div class="modal-content">
                         <!-- Modal Header -->
                         <div class="modal-header p-0 border-0">
                             <ul class="nav nav-pills" id="pills-tab">
                                 <li class="nav-item">
-                                    <p>Bienvenue sur connectify</p>
+                                    <a class="navbar-brand" href="#">
+                                        <img class="logo" src="assets/img/logo.png" alt="">Bienvenue sur Connectify</a>
+                                </li>
+                                <li>
+                                    <p _ngcontent-lvr-c100="" class="my-3">
+                                        Veuillez vous connecter ou remplir une mission.
+                                    </p>
+                                    <div _ngcontent-cnl-c100="" class="button-group">
+                                        <a _ngcontent-cnl-c100="" routerLink="/formTwo"
+                                            class="btn btn-bordered d-none d-lg-inline-block">
+                                            <span _ngcontent-cnl-c100="">Remplir une mission</span>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div _ngcontent-cnl-c100="" class="button-group">
+                                        <a _ngcontent-cnl-c100="" routerLink="/login"
+                                            class="btn btn-bordered d-none d-lg-inline-block">
+                                            <span _ngcontent-cnl-c100="">Se connecter</span>
+                                        </a>
+                                    </div>
                                 </li>
 
                             </ul>
-                            <button type="button" class="close m-0" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <!-- Modal Body -->
-                        <div class="modal-body">
 
-
-
-                            <div class="tab-content" id="pills-tabContent">
-                              <div fxFlex fxFlexOffset="0px" class="form-size">
-
-                                <p1 routerLink="/formTwo" > Remplir une mission</p1>
-                                <br>
-                                <p1 routerLink="/login" > Se connecter</p1>
-
-
-</div>
-
-
-
-                                </div>
-
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 </section>

@@ -1,105 +1,136 @@
 <section class="section login-area h-100vh py-4">
-    <div class="container h-100">
-        <div class="row align-items-center justify-content-center h-100">
-            <div class="col-12 col-sm-10 col-md-6 col-lg-6 mx-auto d-none d-md-block">
-                <div class="login-slider owl-carousel">
-                    <img src="assets/img/login_1.svg" alt="">
-                    <img src="assets/img/login_2.svg" alt="">
-                    <img src="assets/img/login_3.svg" alt="">
-                </div>
+  <div >
+    <div class="row align-items-center justify-content-center h-100">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-5 mx-auto d-none d-md-block">
+        <div class="login-slider owl-carousel">
+          <img src="assets/img/login_1.svg" alt="">
+          <img src="assets/img/login_2.svg" alt="">
+          <img src="assets/img/login_3.svg" alt="">
+        </div>
+      </div>
+      <div class="col-10 col-md-10 col-lg-6">
+        <!-- Appo Modal -->
+        <div class="appo-modal py-4">
+          <!-- Modal Content -->
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header p-0 border-0">
+              <ul class="nav nav-pills" id="pills-tab">
+                <li class="nav-item">
+                  <a class="navbar-brand" href="#">
+                    <img class="logo" src="assets/img/logo.png" alt="">Connectify</a>
+                  <a class="nav-link active" id="login-tab" data-toggle="pill" href="#login">Formulaire
+                    client (1/2)</a>
+                </li>
+
+              </ul>
+
             </div>
-            <div class="col-12 col-md-6 col-lg-5">
-                <!-- Appo Modal -->
-                <div class="appo-modal py-4 p-lg-4">
-                    <!-- Modal Content -->
-                    <div class="modal-content">
-                        <!-- Modal Header -->
-                        <div class="modal-header p-0 border-0">
-                            <ul class="nav nav-pills" id="pills-tab">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="login-tab" data-toggle="pill" href="#login">Formulaire
-                                        client (1/2)</a>
-                                </li>
+            <!-- Modal Body -->
+            <div class="modal-body">
+              <div class="tab-content" id="pills-tabContent">
+                <div fxFlex fxFlexOffset="20px" class="form-size">
+                  <!-- Login Form -->
 
-                            </ul>
-                            <button type="button" class="close m-0" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                  <form name="form" [formGroup]="form" (ngSubmit)="form.valid && onSubmit()">
+                    <div class="input-group mb-3">
+
+
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i
+                            class="material-icons">business_center</i></span>
+                      </div>
+
+                      <input type="text" placeholder="Nom de l'entreprise " class="form-control"
+                        formControlName="nomEntrprise"
+                        [ngClass]="{'is-invalid':form.get('nomEntrprise').touched && form.get('nomEntrprise').invalid}"
+                        required />
+                      <div class="invalid-feedback">
+                        <div>Ce champ est obligatoire</div>
+                      </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon2"><i
+                            class="material-icons">add_location</i></span>
+                      </div>
+
+
+                      <input type="text" placeholder=" Adresse de l'entreprise " class="form-control"
+                        formControlName="adresseEntreprise"
+                        [ngClass]="{'is-invalid':form.get('adresseEntreprise').touched && form.get('adresseEntreprise').invalid}"
+                        required />
+                      <div class="invalid-feedback">
+                        <div>Ce champ est obligatoire</div>
+                      </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon2"><i class="material-icons">vpn_key</i></span>
+                      </div>
+
+
+
+                      <input type="text" placeholder="SIRET" class="form-control" formControlName="siretEntreprise"
+                        [ngClass]="{'is-invalid':form.get('siretEntreprise').touched && form.get('siretEntreprise').invalid}" />
+                      <div *ngIf="form.get('siretEntreprise').touched && form.get('siretEntreprise').invalid"
+                        class="invalid-feedback">
+                        <div *ngIf="form.get('siretEntreprise').errors.required">Ce champ est obligatoire</div>
+                        <div *ngIf="form.controls.siretEntreprise.errors.minlength"> SIRET doit comporter 14 chiffres
                         </div>
-                        <!-- Modal Body -->
-                        <div class="modal-body">
-                            <div class="tab-content" id="pills-tabContent">
-                                <div fxFlex fxFlexOffset="80px" class="form-size">
-                                    <!-- Login Form -->
-
-                                    <form name="form" [formGroup]="form" (ngSubmit)="form.valid && onSubmit()">
-        <div class="form-group">
-          <i class="material-icons">business_center</i>
 
 
-          <label for="nomEntrprise"> Nom de l'entreprise*</label>
-          <input type="text"  class="form-control" formControlName="nomEntrprise" [ngClass]="{'is-invalid':form.get('nomEntrprise').touched && form.get('nomEntrprise').invalid}" required />
-          <div class="invalid-feedback">
-            <div>Ce champ est obligatoire</div>
-          </div>
-        </div>
-        <div class="form-group">
-          <i class="material-icons">add_location</i>
+                      </div>
+                    </div>
+                    <div class="input-group mb-3">
 
-          <label for="adresseEntreprise">Adresse de l'entreprise*</label>
-          <input type="text" class="form-control" formControlName="adresseEntreprise" [ngClass]="{'is-invalid':form.get('adresseEntreprise').touched && form.get('adresseEntreprise').invalid}" required />
-          <div class="invalid-feedback">
-            <div>Ce champ est obligatoire</div>
-          </div>
-        </div>
-        <div class="form-group">
-          <i class="material-icons">vpn_key</i>
-
-          <label for="siretEntreprise">SIRET*</label>
-          <input type="text" class="form-control" formControlName="siretEntreprise" [ngClass]="{'is-invalid':form.get('siretEntreprise').touched && form.get('siretEntreprise').invalid}"   />
-          <div *ngIf="form.get('siretEntreprise').touched && form.get('siretEntreprise').invalid"  class="invalid-feedback">
-            <div *ngIf="form.get('siretEntreprise').errors.required">Ce champ est obligatoire</div>
-            <div *ngIf="form.controls.siretEntreprise.errors.minlength"> SIRET doit comporter 14 chiffres</div>
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon2"><i
+                            class="material-icons">account_box</i></span>
+                      </div>
 
 
-          </div>
-        </div>
-        <div class="form-group">
-          <i class="material-icons">account_box</i>
 
-          <label for="nbEntreprise">Le nombre d'employés*</label>
-          <select type="text" class="form-control"  formControlName="nbEntreprise" [ngClass]="{'is-invalid':form.get('nbEntreprise').touched && form.get('nbEntreprise').invalid}" >
-          <option value="vide">...</option>
-          <option value="1-10">1-10</option>
-          <option value="11-100">11-100</option>
-          <option value="100+">100+</option>
-          </select>
+                      <select type="text" placeholder="Nombre d'employés" class="form-control"
+                        formControlName="nbEntreprise"
+                        [ngClass]="{'is-invalid':form.get('nbEntreprise').touched && form.get('nbEntreprise').invalid}">
+                        <option value="vide">...</option>
+                        <option value="1-10">1-10</option>
+                        <option value="11-100">11-100</option>
+                        <option value="100+">100+</option>
+                      </select>
 
-          <div *ngIf="form.get('nbEntreprise').touched && form.get('nbEntreprise').invalid"  class="invalid-feedback">
-            <div *ngIf="form.get('nbEntreprise').errors.required">Ce champ est obligatoire</div>
+                      <div *ngIf="form.get('nbEntreprise').touched && form.get('nbEntreprise').invalid"
+                        class="invalid-feedback">
+                        <div *ngIf="form.get('nbEntreprise').errors.required">Ce champ est obligatoire</div>
 
+                      </div>
+
+                    </div>
+                    <div class="form-group">
+                      <button class="btn btn-bordered d-block" [disabled]="!form.valid"
+                        (click)="redirect()">Soumettre</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
 
+
+
         </div>
-        <div class="form-group">
-          <button class="btn btn-primary"  [disabled]="!form.valid" (click)="redirect()">Soumettre</button>
-        </div>
-      </form>
+      </div>
+
+
     </div>
+
+
   </div>
-</div>
-</div>
-
-
-
-                                            </div>
-                                        </div>
-
-
-                                </div>
-
-
-                            </div>
 
 
 
